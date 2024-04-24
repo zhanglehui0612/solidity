@@ -1,19 +1,20 @@
     // SPDX-License-Identifier: MIT
     pragma solidity ^0.8.0;
 
-    import "@openzeppelin/contracts/utils/Counters.sol";
     import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
     contract MusicNFT is ERC721URIStorage {
-        using Counters for Counters.Counter;
-        Counters.Counter private tokenIds;
+        uint256 counter;
         constructor() ERC721("MusicNFT", "MNFT") {}
 
-        function mint(address music, string memory tokenURI) public returns (uint256) {
-            tokenIds.increment();
-            uint256 newItemId = tokenIds.current();
-            _mint(music, newItemId);
+        event NFT_MINT(address indexed sender, uint256 tokenId, string tokenURI);
+
+        function mint(address sender, string memory tokenURI) public returns (uint256) {
+            counter++;
+            uint256 newItemId = counter;
+            _mint(sender, newItemId);
             _setTokenURI(newItemId, tokenURI);
+            emit NFT_MINT(sender, newItemId, tokenURI);
             return newItemId;
         }
     }

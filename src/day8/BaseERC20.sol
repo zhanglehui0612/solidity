@@ -34,7 +34,7 @@ contract BaseERC20 {
     }
 
     // 获取指定owner地址对应的代币余额
-function balanceOf(address account) public view virtual returns (uint256) {
+    function balanceOf(address account) public view virtual returns (uint256) {
         return balances[account];
     }
 
@@ -90,6 +90,25 @@ function balanceOf(address account) public view virtual returns (uint256) {
         // 向区块链发送一个批准事件
         emit Approval(msg.sender, spender, value);
         return true;
+    }
+
+
+    // 具有回调功能的transfer 函数
+    function transferFromWithCallback(address _from, address _to, uint256 _value) public returns (bool success) {
+        require(transferFrom(_from, _to, _value), "Fail to transfer with callback");
+        // 检查是部署合约地址，也可以通过地址.code.length 是否大于0
+        if (isContract(_to)) {
+            require(ICallBack(_to).tokensReceived(_from, _value), "Fail to invoke tokensReceived function");
+            emit TransferCallback(_from, _to, _value);
+        }
+        return true;
+    }
+
+    // 判断是不是合约地址
+    function isContract(address _address) internal view returns (bool success) {
+        uint size;
+        assembly { size := extcodesize(_address) }
+        return size > 0;
     }
 
 }

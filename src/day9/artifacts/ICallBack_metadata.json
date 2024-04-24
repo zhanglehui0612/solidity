@@ -1,0 +1,81 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recepient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokens",
+						"type": "uint256"
+					}
+				],
+				"name": "tokensReceived",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/day9/ICallBack.sol": "ICallBack"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": [
+			":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+			":ds-test/=lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/",
+			":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+			":forge-std/=lib/forge-std/src/",
+			":openzeppelin-contracts/=lib/openzeppelin-contracts/"
+		]
+	},
+	"sources": {
+		"src/day9/ICallBack.sol": {
+			"keccak256": "0x66a6c963f45f826dd28642647129a1bae25a74193a4846c367cb96a72924a462",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1e351d30adabc2ffe391c07cec93c915d29eda67aa7164db24a9f58f52dc0a40",
+				"dweb:/ipfs/Qmcmfcg8voD5hpN2XEjHaf4MqmdWAx75UnKecxMymW2TMS"
+			]
+		}
+	},
+	"version": 1
+}

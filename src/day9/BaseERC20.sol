@@ -99,10 +99,11 @@ contract BaseERC20 {
     }
 
     // 具有回调功能的transfer 函数
-    function transferFromWithCallback(address _from, address _to, uint256 _value) public returns (bool success) {
+    function transferFromWithCallback(address _from, address _to, uint _tokenId, uint256 _value) public returns (bool success) {
         require(transferFrom(_from, _to, _value), "Fail to transfer with callback");
+        // 检查是部署合约地址，也可以通过地址.code.length 是否大于0
         if (isContract(_to)) {
-            require(ICallBack(_to).tokensReceived(_from, _value), "Fail to invoke tokensReceived function");
+            require(ICallBack(_to).tokensReceived(_from, _tokenId, _value), "Fail to invoke tokensReceived function");
             emit TransferCallback(_from, _to, _value);
         }
         return true;
