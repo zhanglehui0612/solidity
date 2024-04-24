@@ -1,0 +1,16 @@
+{
+    "title": "Louis Vena",
+    "description": "Cneter Left",
+    "image": "ipfs://QmX6pUBZDRt2uzw79iatA9zH9sbbDrrT1wThs8cjamqAkF",
+    "attributes": [
+        {
+        "trait_type": "Singer",
+        "value": "Belly"
+        },
+        {
+        "trait_type": "Area",
+        "value": "America"
+        }
+    ],
+    "version": "1"
+}

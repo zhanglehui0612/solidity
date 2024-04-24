@@ -1,0 +1,16 @@
+{
+    "title": "Cool Hanse",
+    "description": "Royal Revene",
+    "image": "ipfs://QmaTFuWHzrNFUamisEF8Mt3FkSVUhWXwv4QdtNsiDSFKKu",
+    "attributes": [
+        {
+        "trait_type": "Singer",
+        "value": "Briteny"
+        },
+        {
+        "trait_type": "Area",
+        "value": "America"
+        }
+    ],
+    "version": "1"
+}

@@ -1,0 +1,16 @@
+{
+    "title": "Hahah",
+    "description": "Kolo Hase Nance",
+    "image": "ipfs://QmdaktMiiNYf1Tc4N5LGNy9wLDYwX9gBq1W9xduAYHFm1Q",
+    "attributes": [
+        {
+        "trait_type": "Singer",
+        "value": "Kaly"
+        },
+        {
+        "trait_type": "Area",
+        "value": "England"
+        }
+    ],
+    "version": "1"
+}
