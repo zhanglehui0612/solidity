@@ -15,8 +15,6 @@ contract NFTMarket is IERC721Receiver{
 
     mapping (uint => address) sellers;
 
-
-
     constructor(address _baseERC20, address _music) {
         baseERC20 = BaseERC20(_baseERC20);
         music = MusicNFT(_music);
@@ -40,16 +38,10 @@ contract NFTMarket is IERC721Receiver{
      * @param tokenId NFT唯一标识
      * @param amount NFT用BaseERC20表示的价格数量
      */
-    function buy(uint tokenId, uint amount) external {
+    function buy(uint tokenId, uint amount) public {
         require(music.ownerOf(tokenId) == address(this), "Music NFT have aleady been selled");
         require(amount >0 && amount >= tokenPrices[tokenId], "Music NFT cann not be buyed since price is lower");
-        // 方案1:
-        // 先将用户转移指定数量的token到当前合约账户
-        // baseERC20.transferFrom(msg.sender, address(this), tokenPrices[tokenId]);
-        // 然后再从当前合约转给原NFT的ownerId
-        // baseERC20.transfer(sellers(tokenId), tokenPrices[tokenId]);
 
-        // 方案2:
         // 将按照上架价格的数量的BaseERC20转给原NFT的持有者,前提是需要授权给当前合约
         baseERC20.transferFrom(msg.sender, sellers[tokenId], tokenPrices[tokenId]);
         // 将NFT的所有权转给购买者
@@ -62,9 +54,6 @@ contract NFTMarket is IERC721Receiver{
      * @param amount NFT用BaseERC20表示的价格数量
      */
     function list(uint tokenId, uint amount) external {
-        // 用户要上架tokenId对应的
-        // require(ownerOf(tokenId) == msg.sender, "Not the owner of the NFT, can not allowed be to list");
-        // EOA用户将NFT授权给当前合约
         music.safeTransferFrom(msg.sender, address(this), tokenId);
         // 将该NFT设置价格
         tokenPrices[tokenId] = amount;
@@ -79,9 +68,15 @@ contract NFTMarket is IERC721Receiver{
      * @param tokenId NFT的tokeId
      * @param tokens 转入TokenBank的代币数量
      */
-    function tokensReceived(address from, uint tokenId, uint256 tokens) external returns (bool) {
+    function tokensReceived(address from, uint256 tokens, bytes memory data) external returns (bool) {
+        uint256 tokenId = abi.decode(data, (uint256));
         require(tokenPrices[tokenId] <= tokens, "Have no engough tokens");
-        baseERC20.transfer(sellers[tokenId], tokenPrices[tokenId]);
+        // MusicNFT给当前合约授权
+        music.approve(address(this), tokenId);
+        baseERC20.transferFrom(from, address(this), tokenPrices[tokenId]);
+        // 将NFT的所有权转给购买者
         music.safeTransferFrom(address(this), from, tokenId);
+        
+        return true;
     }
 }

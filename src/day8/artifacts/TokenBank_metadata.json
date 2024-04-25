@@ -1,0 +1,123 @@
+{
+	"compiler": {
+		"version": "0.8.13+commit.abaa5c0e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_baseERC20",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokens",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokens",
+						"type": "uint256"
+					}
+				],
+				"name": "tokensReceived",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokens",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"TokenBank.sol": "TokenBank"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"BaseERC20.sol": {
+			"keccak256": "0x60fa80691e40d4211c7255632e95eb0e966d42e405ba4d8796dd5b71fd821a65",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9f8b1b18d02209a478e57d0f206e52b379abff9ba8d6f3cf3ff1e49096680fa8",
+				"dweb:/ipfs/QmZQoFQaEhthEoBb8CwoqhtzbiabPEVYrz6YH1544gCuhV"
+			]
+		},
+		"ICallBack.sol": {
+			"keccak256": "0x42f6e8486888b36b82267792c49e0b3d10686bba81d6fac39fc6e27d9d3211dd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1ad74e231bdb4b40107a1ffcaeb41f1351e46fbf683e4276c449cdf771f1ce6e",
+				"dweb:/ipfs/QmTFk85hU2zDazLtrPkFSCQn2mzUZ89aRDmEAMM95Wdo9S"
+			]
+		},
+		"TokenBank.sol": {
+			"keccak256": "0x2b6e430712015350bc95e7f0068e6ae9bed112bc4f02d4e3c6b3cc4863fc0654",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e03a13b8851cd1b137db1e1711cb966013ced9cc7a954575dabb5b4e8bda193a",
+				"dweb:/ipfs/QmRbYoX8eYSas1pufxFLuJfedjvvtNUHQFQ2Jw7CmgRmeW"
+			]
+		}
+	},
+	"version": 1
+}

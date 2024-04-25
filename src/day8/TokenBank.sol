@@ -19,7 +19,8 @@ contract TokenBank {
      */
     function deposit(uint256 tokens) public {
         // 该用户token足够且授权的token足够，则允许将用户在BaseERC20中的代币转到TokenBank
-        baseERC20.transferFromWithCallback(msg.sender, address(this), tokens);
+        baseERC20.transferFrom(msg.sender, address(this), tokens);
+        deposits[msg.sender] += tokens;
     }
 
     /*
@@ -39,9 +40,8 @@ contract TokenBank {
      * @param tokens 转入TokenBank的代币数量
      */
     function tokensReceived(address from, uint256 tokens) external returns (bool) {
-        require(msg.sender == baseERC20, "Only BaseERC20 contract could execute!")
+        require(msg.sender == address(baseERC20), "Only BaseERC20 contract could execute!");
         deposits[from] += tokens;
-        emit TokenReceived(from, deposits[from]);
         return true;
     }
 }

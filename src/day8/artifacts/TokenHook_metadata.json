@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.8.13+commit.abaa5c0e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recepient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokens",
+						"type": "uint256"
+					}
+				],
+				"name": "tokensReceived",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ICallBack.sol": "TokenHook"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ICallBack.sol": {
+			"keccak256": "0x42f6e8486888b36b82267792c49e0b3d10686bba81d6fac39fc6e27d9d3211dd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1ad74e231bdb4b40107a1ffcaeb41f1351e46fbf683e4276c449cdf771f1ce6e",
+				"dweb:/ipfs/QmTFk85hU2zDazLtrPkFSCQn2mzUZ89aRDmEAMM95Wdo9S"
+			]
+		}
+	},
+	"version": 1
+}

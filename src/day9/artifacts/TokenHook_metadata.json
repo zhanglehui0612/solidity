@@ -1,0 +1,75 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recepient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokens",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "tokensReceived",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ICallBack.sol": "TokenHook"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ICallBack.sol": {
+			"keccak256": "0x2afb049db4634ee535685abf934f7c9acf8ed5c9bfd8f2d406715ecbab97a795",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1219ba40e8986ef55834f0d6e2ced0285aa96e23e851369981fa403951281a22",
+				"dweb:/ipfs/Qmc7NA7DxLr3kBH64tNB9nWHdULyDwxSSsURVLdcJCXhCZ"
+			]
+		}
+	},
+	"version": 1
+}
