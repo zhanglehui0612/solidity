@@ -28,7 +28,7 @@ contract BaseERC20 {
 
     error BaseERC20FailedOperation(address token);
 
-    constructor() public {
+    constructor() {
         name = "BaseERC20";
         symbol = "BERC20";
         // token小数位最多18位
@@ -77,8 +77,8 @@ contract BaseERC20 {
         require(balances[_from] >= _value, "ERC20: transfer amount exceeds balance");
 
         // 校验token委托方针对from用户剩余被批准的token数量
-        uint256 allowance = allowance(_from, msg.sender);
-        require(allowance > _value, "ERC20: transfer amount exceeds allowance");
+        // uint256 allowance = allowance(_from, msg.sender);
+        require(allowance(_from, msg.sender) > _value, "ERC20: transfer amount exceeds allowance");
         // 转移之后from的token数量扣减
         balances[_from] -= _value;
         // 扣减spender剩余的可转账token数量
