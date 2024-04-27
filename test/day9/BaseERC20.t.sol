@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 import {Test, console} from "forge-std/Test.sol";
 import "forge-std/Vm.sol";
 import {IERC20Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
-import "../../src/day9/BaseERC20.sol";
+import {BaseERC20} from  "../../src/day9/BaseERC20.sol";
 import "../../src/day9/MusicNFT.sol";
 import "../../src/day9/NFTMarkets.sol";
 
@@ -133,7 +133,11 @@ contract BaseERC20Test is Test {
         baseERC20.transferWithCallback(ercOwner, address(market), 10000, data);
 
         // 对NFT Market授权BaseERC20的权限, 购买成功
+    
         baseERC20.approve(address(market), 1000000000);
+
+        vm.expectEmit(address(market));
+        emit TransferCallback();
         baseERC20.transferWithCallback(ercOwner, address(market), 10000, data);
         vm.stopPrank();
     }

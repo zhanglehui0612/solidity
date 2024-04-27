@@ -3,7 +3,7 @@ pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
 import "forge-std/Vm.sol";
-import {IERC20Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
+import {IERC20Errors, IERC721Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
 import "../../src/day9/BaseERC20.sol";
 import "../../src/day9/MusicNFT.sol";
 import "../../src/day9/NFTMarkets.sol";
@@ -27,6 +27,7 @@ contract NFTMarketTest is Test {
         
     }
 
+function Aa() internal {}
     /**
      * 测试NFTMarket的list函数
      */
@@ -55,6 +56,7 @@ contract NFTMarketTest is Test {
     function testNFTMarketBuy() public {
         // 测试tokenId不存在
         vm.expectRevert(abi.encodeWithSignature("ERC721NonexistentToken(uint256)", 1));
+        // vm.expectRevert(abi.encodeWithSelector(IERC721Errors.ERC721NonexistentToken.selector, 1));
         market.buy(1, 10000);
 
         // mint nft
