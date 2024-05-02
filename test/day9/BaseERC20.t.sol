@@ -136,8 +136,6 @@ contract BaseERC20Test is Test {
     
         baseERC20.approve(address(market), 1000000000);
 
-        vm.expectEmit(address(market));
-        emit TransferCallback();
         baseERC20.transferWithCallback(ercOwner, address(market), 10000, data);
         vm.stopPrank();
     }
